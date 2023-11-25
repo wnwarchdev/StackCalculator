@@ -1,0 +1,18 @@
+{
+  "name": "Stack Calculator",
+  "version": "1.0.0",
+  "description": "Building Stack area calculator with converter",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "npm-run-all test:*",
+    "test:js": "eslint src/js/",
+    "build": "parcel build index.html --dist-dir ./public"
+  },
+  "author": "Wojtek Nowak",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.3",
+    "parcel": "^2.10.3"
+  }
+}
