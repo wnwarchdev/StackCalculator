@@ -4,7 +4,8 @@ const inputSqM = document.getElementById("inputSqM");
 const inputSqFt = document.getElementById("inputSqFt");
 
 const calcArea = function (unit, area) {
-  const result = unit == "sqM" ? area * 10.76391 : area * 0.092903;
+  const result = unit == "sqM" ? area * 10.7639 : area / 10.7639;
+  result.toFixed(2);
   return result;
 };
 
