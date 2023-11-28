@@ -5,8 +5,9 @@ const inputSqFt = document.getElementById("inputSqFt");
 
 const calcArea = function (unit, area) {
   const result = unit == "sqM" ? area * 10.7639 : area / 10.7639;
-  result.toFixed(2);
-  return result;
+  console.log(typeof result);
+  return Number.parseFloat(result).toFixed(3);
+  //return result.toFixed(2);
 };
 
 inputSqM.addEventListener("keyup", function (e) {
