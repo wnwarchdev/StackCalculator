@@ -2,6 +2,7 @@
 
 const inputSqM = document.getElementById("inputSqM");
 const inputSqFt = document.getElementById("inputSqFt");
+const calculator = document.getElementById("calculator");
 
 const calcArea = function (unit, area) {
   const result = unit == "inputSqM" ? area * 10.7639 : area / 10.7639;
@@ -10,11 +11,11 @@ const calcArea = function (unit, area) {
   //return result.toFixed(2);
 };
 
-inputSqM.addEventListener("keyup", function (e) {
+calculator.addEventListener("keyup", function (e) {
   e.preventDefault;
   console.log(e.target);
-  console.log("m2");
-  inputSqFt.value = calcArea(e.target.id, inputSqM.value);
+  console.log("calc");
+  if (e.target) inputSqFt.value = calcArea(e.target.id, inputSqM.value);
 });
 
 // inputSqFt.addEventListener("keyup", function (e) {
