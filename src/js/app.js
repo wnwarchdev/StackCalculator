@@ -6,19 +6,17 @@ const calculator = document.getElementById("calculator");
 
 const calcArea = function (unit, area) {
   const result = unit == "inputSqM" ? area * 10.7639 : area / 10.7639;
-  console.log(typeof result);
   return Number.parseFloat(result).toFixed(2);
-  //return result.toFixed(2);
 };
 
 calculator.addEventListener("keyup", function (e) {
   e.preventDefault;
-  console.log(e.target);
-  console.log("calc");
-  if (e.target) inputSqFt.value = calcArea(e.target.id, inputSqM.value);
+  if (e.target.tagName == "INPUT") {
+    console.log(e.target);
+    e.target.id == `inputSqM`
+      ? (inputSqFt.value = calcArea(e.target.id, inputSqM.value))
+      : (inputSqM.value = calcArea(e.target.id, inputSqFt.value));
+  } else {
+    console.log("not input");
+  }
 });
-
-// inputSqFt.addEventListener("keyup", function (e) {
-//   console.log("sqft");
-//   inputSqM.value = calcArea(false, inputSqFt.value);
-// });

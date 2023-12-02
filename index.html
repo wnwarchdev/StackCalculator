@@ -1,17 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="./src/sass/style.scss">
+    <link rel="stylesheet" href="./src/sass/style.scss" />
   </head>
   <body>
     <div id="calculator">
-    <p>m2 <input id="inputSqM" min="0" type="number" pattern="^\d*(\.\d{0,2})?$" onpaste="return false;" ondrop="return false;"autocomplete="off"></p>
-    <p>sqft <input id="inputSqFt" min="0" type="number" pattern="^\d*(\.\d{0,2})?$" onpaste="return false;" ondrop="return false;"autocomplete="off"></p>
-  </div>
-	<script src="./src/js/app.js"></script>
+      <div class="level">
+        <p>
+          m2
+          <input
+            id="inputSqM"
+            min="0"
+            type="number"
+            pattern="^\d*(\.\d{0,2})?$"
+            onpaste="return false;"
+            ondrop="return false;"
+            autocomplete="off"
+          />
+        </p>
+        <p>
+          sqft
+          <input
+            id="inputSqFt"
+            min="0"
+            type="number"
+            pattern="^\d*(\.\d{0,2})?$"
+            onpaste="return false;"
+            ondrop="return false;"
+            autocomplete="off"
+          />
+        </p>
+      </div>
+
+    </div>
+    <script src="./src/js/app.js"></script>
   </body>
 </html>
