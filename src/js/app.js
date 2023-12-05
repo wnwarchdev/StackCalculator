@@ -92,3 +92,9 @@ addBtn.addEventListener("click", function () {
 //     console.log("not input");
 //   }
 // });
+
+////object
+
+const level = { number: 0, areaSqM: 0, areaSqFt: 0 };
+console.log(level);
+console.log(typeof level);
