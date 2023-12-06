@@ -21,6 +21,7 @@ const levelDiv = `<div class="level">
   <input
     id="level"
     min="0"
+    value="0"
     type="number"
     pattern="^\d*(\.\d{0,2})?$"
     onpaste="return false;"
@@ -33,10 +34,12 @@ const levelDiv = `<div class="level">
   <input
     id="inputSqM"
     min="0"
+    value="0.00"
     type="number"
     pattern="^\d*(\.\d{0,2})?$"
     onpaste="return false;"
     ondrop="return false;"
+    onblur="this.value = parseFloat(this.value).toFixed(2)"
     autocomplete="off"
   />
 </p>
@@ -45,10 +48,12 @@ const levelDiv = `<div class="level">
   <input
     id="inputSqFt"
     min="0"
+    value="0.00"
     type="number"
     pattern="^\d*(\.\d{0,2})?$"
     onpaste="return false;"
     ondrop="return false;"
+    onblur="this.value = parseFloat(this.value).toFixed(2)"
     autocomplete="off"
   />
 </p>
