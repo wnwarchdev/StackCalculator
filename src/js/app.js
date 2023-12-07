@@ -20,12 +20,13 @@ const levelDiv = `<div class="level">
   level
   <input
     id="level"
-    min="0"
-    value="0"
-    type="number"
-    pattern="^\d*(\.\d{0,2})?$"
+    type="text"
+    pattern="[0-9]*"
+    inputmode="numeric"
     onpaste="return false;"
     ondrop="return false;"
+    maxlength="3"
+    // oninput = "(this.value.length > this.maxLength) ? this.value = this.value.slice(0, this.maxLength) : this.value;"
     autocomplete="off"
   />
 </p>
