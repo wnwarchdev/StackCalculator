@@ -101,6 +101,7 @@ addBtn.addEventListener("click", function () {
 
 ////object
 
-const level = { number: 0, areaSqM: 0, areaSqFt: 0 };
+const stack = {};
+const level = { levelId: 0, number: 0, areaSqM: 0, areaSqFt: 0 };
 console.log(level);
 console.log(typeof level);
