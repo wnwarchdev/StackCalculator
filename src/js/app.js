@@ -4,6 +4,7 @@
 // const inputSqFt = document.getElementById("inputSqFt");
 const calculator = document.getElementById("calculator");
 const addBtn = document.getElementById("add");
+let id = 1;
 
 const stack = [];
 
@@ -20,11 +21,20 @@ const renderStack = function () {
   });
 };
 //level div
-const levelDiv = `<div class="level">
+// const addLevel = function () {
+
+// };
+
+const addLevel = function () {
+  let level;
+  level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
+  stack.push(level);
+
+  const levelDiv = `<div class="level">
 <p>
   level
   <input
-    id="level"
+    id="level-${id}"
     type="text"
     pattern="[0-9]*"
     inputmode="numeric"
@@ -38,7 +48,7 @@ const levelDiv = `<div class="level">
 <p>
   m2
   <input
-    id="inputSqM"
+    id="inputSqM-${id}"
     min="0"
     value="0.00"
     type="number"
@@ -52,7 +62,7 @@ const levelDiv = `<div class="level">
 <p>
   sqft
   <input
-    id="inputSqFt"
+    id="inputSqFt-${id}"
     min="0"
     value="0.00"
     type="number"
@@ -68,28 +78,22 @@ const levelDiv = `<div class="level">
 </p>
 `;
 
-// const addLevel = function () {
-//   calculator.insertAdjacentHTML("afterbegin", levelDiv);
-//   const inputSqM = document.getElementById("inputSqM");
-//   const inputSqFt = document.getElementById("inputSqFt");
-//   calculator.addEventListener("keyup", function (e) {
-//     e.preventDefault;
-//     if (e.target.tagName == "INPUT") {
-//       //console.log(e.target);
-//       e.target.id == `inputSqM`
-//         ? (inputSqFt.value = calcArea(e.target.id, inputSqM.value))
-//         : (inputSqM.value = calcArea(e.target.id, inputSqFt.value));
-//     } else {
-//       console.log("not input");
-//     }
-//   });
-// };
+  calculator.insertAdjacentHTML("afterbegin", levelDiv);
+  const inputSqM = document.getElementById(`inputSqM-${id}`);
+  const inputSqFt = document.getElementById(`inputSqFt-${id}`);
+  calculator.addEventListener("keyup", function (e) {
+    e.preventDefault;
+    if (e.target.tagName == "INPUT") {
+      console.log(e.target);
+      e.target.id == `inputSqM-${id}`
+        ? (inputSqFt.value = calcArea(e.target.id, inputSqM.value))
+        : (inputSqM.value = calcArea(e.target.id, inputSqFt.value));
+    } else {
+      console.log("not input");
+    }
+  });
 
-const addLevel = function () {
-  let level;
-  level = { levelId: 1, number: 1, areaSqM: 0, areaSqFt: 0 };
-  console.log("level added");
-  stack.push(level);
+  id++;
 };
 
 addBtn.addEventListener("click", function () {
