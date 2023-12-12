@@ -79,18 +79,21 @@ const addLevel = function () {
 `;
 
   calculator.insertAdjacentHTML("afterbegin", levelDiv);
-  const inputSqM = document.getElementById(`inputSqM-${id}`);
-  const inputSqFt = document.getElementById(`inputSqFt-${id}`);
-  calculator.addEventListener("keyup", function (e) {
+  let inputSqM = document.getElementById(`inputSqM-${id}`);
+  let inputSqFt = document.getElementById(`inputSqFt-${id}`);
+
+  //console.log(inputSqFt, inputSqM);
+
+  inputSqM.addEventListener("keyup", function (e) {
     e.preventDefault;
-    if (e.target.tagName == "INPUT") {
-      console.log(e.target);
-      e.target.id == `inputSqM-${id}`
-        ? (inputSqFt.value = calcArea(e.target.id, inputSqM.value))
-        : (inputSqM.value = calcArea(e.target.id, inputSqFt.value));
-    } else {
-      console.log("not input");
-    }
+    //console.log(inputSqM);
+    inputSqFt.value = calcArea(`inputSqM`, inputSqM.value);
+  });
+
+  inputSqFt.addEventListener("keyup", function (e) {
+    e.preventDefault;
+    //console.log(inputSqFt);
+    inputSqM.value = calcArea(`inputSqFt`, inputSqFt.value);
   });
 
   id++;
