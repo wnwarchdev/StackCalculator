@@ -74,9 +74,14 @@ const addLevel = function () {
   />
 </p>
 <p>
-  <button>🗑️</button>
+  <button
+  id="levelDivRemove-${id}">🗑️</button>
 </p>
 `;
+
+  const levelDivRemove = function (id) {
+    console.log(`level-${id}`);
+  };
 
   calculator.insertAdjacentHTML("afterbegin", levelDiv);
   let inputSqM = document.getElementById(`inputSqM-${id}`);
@@ -94,6 +99,11 @@ const addLevel = function () {
     e.preventDefault;
     //console.log(inputSqFt);
     inputSqM.value = calcArea(`inputSqFt`, inputSqFt.value);
+  });
+
+  calculator.addEventListener("click", function (e) {
+    e.preventDefault;
+    levelDivRemove(1);
   });
 
   id++;
