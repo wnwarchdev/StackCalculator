@@ -103,7 +103,8 @@ const addLevel = function () {
 
   calculator.addEventListener("click", function (e) {
     e.preventDefault;
-    levelDivRemove(1);
+    //console.log(e.target.id);
+    levelDivRemove(e.target.id.slice(15));
   });
 
   id++;
