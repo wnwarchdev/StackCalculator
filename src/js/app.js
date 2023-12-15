@@ -30,7 +30,7 @@ const addLevel = function () {
   level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
   stack.push(level);
 
-  const levelDiv = `<div class="level">
+  const levelDiv = `<div class="level" id="levelDiv-${id}">
 <p>
   level
   <input
@@ -80,7 +80,8 @@ const addLevel = function () {
 `;
 
   const levelDivRemove = function (id) {
-    console.log(`level-${id}`);
+    const removedLevel = document.getElementById(`levelDiv-${id}`);
+    removedLevel.remove();
   };
 
   calculator.insertAdjacentHTML("afterbegin", levelDiv);
