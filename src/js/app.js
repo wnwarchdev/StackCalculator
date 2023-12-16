@@ -26,9 +26,9 @@ const renderStack = function () {
 // };
 
 const addLevel = function () {
-  let level;
-  level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
-  stack.push(level);
+  // let level;
+  // level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
+  // stack.push(level);
 
   const levelDiv = `<div class="level" id="levelDiv-${id}">
 <p>
@@ -79,11 +79,6 @@ const addLevel = function () {
 </p>
 `;
 
-  const levelDivRemove = function (id) {
-    const removedLevel = document.getElementById(`levelDiv-${id}`);
-    removedLevel.remove();
-  };
-
   calculator.insertAdjacentHTML("afterbegin", levelDiv);
   let inputSqM = document.getElementById(`inputSqM-${id}`);
   let inputSqFt = document.getElementById(`inputSqFt-${id}`);
@@ -92,26 +87,39 @@ const addLevel = function () {
 
   inputSqM.addEventListener("keyup", function (e) {
     e.preventDefault;
-    //console.log(inputSqM);
+    console.log(inputSqM);
     inputSqFt.value = calcArea(`inputSqM`, inputSqM.value);
   });
 
   inputSqFt.addEventListener("keyup", function (e) {
     e.preventDefault;
-    //console.log(inputSqFt);
+    console.log(inputSqFt);
     inputSqM.value = calcArea(`inputSqFt`, inputSqFt.value);
-  });
-
-  calculator.addEventListener("click", function (e) {
-    e.preventDefault;
-    //console.log(e.target.id);
-    levelDivRemove(e.target.id.slice(15));
   });
 
   id++;
 };
 
+///functionality for levelDiv remove buttons
+
+const levelDivRemove = function (id) {
+  const removedLevel = document.getElementById(`levelDiv-${id}`);
+  removedLevel.remove();
+};
+
+function listenerFunction(e) {
+  e.preventDefault;
+  console.log(e.target.tagName);
+  if (e.target.tagName == "BUTTON") {
+    console.log("listener!!!");
+    levelDivRemove(e.target.id.slice(15));
+  }
+}
+
+///functionality for levelDiv add button
+
 addBtn.addEventListener("click", function () {
   addLevel();
-  renderStack();
+  calculator.removeEventListener("click", listenerFunction, true);
+  calculator.addEventListener("click", listenerFunction, true);
 });
