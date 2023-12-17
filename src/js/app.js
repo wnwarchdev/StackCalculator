@@ -16,9 +16,9 @@ const calcArea = function (unit, area) {
 
 const renderStack = function () {
   console.log(stack);
-  stack.forEach((level) => {
-    console.log(level);
-  });
+  // stack.forEach((level) => {
+  //   console.log(level);
+  // });
 };
 //level div
 // const addLevel = function () {
@@ -26,9 +26,10 @@ const renderStack = function () {
 // };
 
 const addLevel = function () {
-  // let level;
-  // level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
-  // stack.push(level);
+  let level;
+  level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
+  stack.push(level);
+  const currentId = id;
 
   const levelDiv = `<div class="level" id="levelDiv-${id}">
 <p>
@@ -85,16 +86,38 @@ const addLevel = function () {
 
   //console.log(inputSqFt, inputSqM);
 
+  //add level listener
+
   inputSqM.addEventListener("keyup", function (e) {
     e.preventDefault;
     console.log(inputSqM);
-    inputSqFt.value = calcArea(`inputSqM`, inputSqM.value);
+    let conversion = calcArea(`inputSqM`, inputSqM.value);
+    inputSqFt.value = conversion;
+
+    for (const i in stack) {
+      if (stack[i].levelId == currentId) {
+        //console.log("test");
+        stack[i].areaSqM = inputSqM.value;
+        stack[i].areaSqFt = conversion;
+      }
+    }
+    renderStack();
   });
 
   inputSqFt.addEventListener("keyup", function (e) {
     e.preventDefault;
     console.log(inputSqFt);
-    inputSqM.value = calcArea(`inputSqFt`, inputSqFt.value);
+    let conversion = calcArea(`inputSqFt`, inputSqFt.value);
+    inputSqM.value = conversion;
+
+    for (const i in stack) {
+      if (stack[i].levelId == currentId) {
+        //console.log("test");
+        stack[i].areaSqM = conversion;
+        stack[i].areaSqFt = inputSqFt.value;
+      }
+    }
+    renderStack();
   });
 
   id++;
@@ -109,9 +132,9 @@ const levelDivRemove = function (id) {
 
 function listenerFunction(e) {
   e.preventDefault;
-  console.log(e.target.tagName);
+  //console.log(e.target.tagName);
   if (e.target.tagName == "BUTTON") {
-    console.log("listener!!!");
+    ///console.log("listener!!!");
     levelDivRemove(e.target.id.slice(15));
   }
 }
