@@ -35,7 +35,7 @@ const addLevel = function () {
 <p>
   level
   <input
-    id="level-${id}"
+    id="level-${currentId}"
     type="text"
     pattern="[0-9]*"
     inputmode="numeric"
@@ -49,7 +49,7 @@ const addLevel = function () {
 <p>
   m2
   <input
-    id="inputSqM-${id}"
+    id="inputSqM-${currentId}"
     min="0"
     value="0.00"
     type="number"
@@ -63,7 +63,7 @@ const addLevel = function () {
 <p>
   sqft
   <input
-    id="inputSqFt-${id}"
+    id="inputSqFt-${currentId}"
     min="0"
     value="0.00"
     type="number"
@@ -76,17 +76,29 @@ const addLevel = function () {
 </p>
 <p>
   <button
-  id="levelDivRemove-${id}">🗑️</button>
+  id="levelDivRemove-${currentId}">🗑️</button>
 </p>
 `;
 
   calculator.insertAdjacentHTML("afterbegin", levelDiv);
-  let inputSqM = document.getElementById(`inputSqM-${id}`);
-  let inputSqFt = document.getElementById(`inputSqFt-${id}`);
+  let inputSqM = document.getElementById(`inputSqM-${currentId}`);
+  let inputSqFt = document.getElementById(`inputSqFt-${currentId}`);
+  let inputNumber = document.getElementById(`level-${currentId}`);
 
   //console.log(inputSqFt, inputSqM);
 
   //add level listener
+
+  inputNumber.addEventListener("keyup", function (e) {
+    e.preventDefault;
+    console.log("level-${currentId}");
+    for (const i in stack) {
+      if (stack[i].levelId == currentId) {
+        stack[i].number = inputNumber.value;
+      }
+    }
+    renderStack();
+  });
 
   inputSqM.addEventListener("keyup", function (e) {
     e.preventDefault;
@@ -128,6 +140,7 @@ const addLevel = function () {
 const levelDivRemove = function (id) {
   const removedLevel = document.getElementById(`levelDiv-${id}`);
   removedLevel.remove();
+  //remove from stack too!
 };
 
 function listenerFunction(e) {
