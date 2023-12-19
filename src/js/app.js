@@ -141,6 +141,13 @@ const levelDivRemove = function (id) {
   const removedLevel = document.getElementById(`levelDiv-${id}`);
   removedLevel.remove();
   //remove from stack too!
+  for (const i in stack) {
+    if (stack[i].levelId == id) {
+      console.log("test remove");
+      stack.splice(i, 1);
+    }
+  }
+  renderStack();
 };
 
 function listenerFunction(e) {
