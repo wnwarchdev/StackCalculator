@@ -36,6 +36,7 @@ const addLevel = function () {
   level
   <input
     id="level-${currentId}"
+    class="input inputLevel"
     type="text"
     pattern="[0-9]*"
     inputmode="numeric"
@@ -50,6 +51,7 @@ const addLevel = function () {
   m2
   <input
     id="inputSqM-${currentId}"
+    class="input"
     min="0"
     value="0.00"
     type="number"
@@ -64,6 +66,7 @@ const addLevel = function () {
   sqft
   <input
     id="inputSqFt-${currentId}"
+    class="input"
     min="0"
     value="0.00"
     type="number"
