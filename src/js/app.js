@@ -3,7 +3,8 @@
 // const inputSqM = document.getElementById("inputSqM");
 // const inputSqFt = document.getElementById("inputSqFt");
 const calculator = document.getElementById("calculator");
-const addBtn = document.getElementById("add");
+const addAboveBtn = document.getElementById("addAbove");
+const addBelowBtn = document.getElementById("addBelow");
 let id = 1;
 
 const stack = [];
@@ -25,7 +26,7 @@ const renderStack = function () {
 
 // };
 
-const addLevel = function () {
+const addLevel = function (position) {
   let level;
   level = { levelId: id, number: 1, areaSqM: 0, areaSqFt: 0 };
   stack.push(level);
@@ -83,7 +84,10 @@ const addLevel = function () {
 </p>
 `;
 
-  calculator.insertAdjacentHTML("afterbegin", levelDiv);
+  calculator.insertAdjacentHTML(
+    position == `above` ? "beforeend" : "afterbegin",
+    levelDiv,
+  );
   let inputSqM = document.getElementById(`inputSqM-${currentId}`);
   let inputSqFt = document.getElementById(`inputSqFt-${currentId}`);
   let inputNumber = document.getElementById(`level-${currentId}`);
@@ -164,8 +168,14 @@ function listenerFunction(e) {
 
 ///functionality for levelDiv add button
 
-addBtn.addEventListener("click", function () {
-  addLevel();
+addAboveBtn.addEventListener("click", function () {
+  addLevel(`above`);
+  calculator.removeEventListener("click", listenerFunction, true);
+  calculator.addEventListener("click", listenerFunction, true);
+});
+
+addBelowBtn.addEventListener("click", function () {
+  addLevel(`below`);
   calculator.removeEventListener("click", listenerFunction, true);
   calculator.addEventListener("click", listenerFunction, true);
 });
