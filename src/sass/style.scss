@@ -24,7 +24,8 @@ input::-webkit-inner-spin-button {
   //background-color: gray;
   width: 600px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .level {
@@ -38,18 +39,19 @@ input::-webkit-inner-spin-button {
   height: 60px;
 }
 
-#addAbove {
-  background-color: rgba(255, 0, 0, 0.171);
-  position: fixed;
-  top: 60px;
-  right: 60px;
-}
-
+#addAbove,
 #addBelow {
-  background-color: rgba(157, 255, 0, 0.171);
-  position: fixed;
-  top: 100px;
-  right: 60px;
+  border-color: blue;
+  color: blue;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  font-size: 30px;
 }
 
 .input {
