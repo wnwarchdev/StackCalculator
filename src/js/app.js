@@ -6,6 +6,9 @@ const calculator = document.getElementById("calculator");
 const stackDiv = document.getElementById("stack");
 const addAboveBtn = document.getElementById("addAbove");
 const addBelowBtn = document.getElementById("addBelow");
+
+const totalLevel = document.getElementById("totalLevel");
+
 let id = 1;
 
 const stack = [];
@@ -16,16 +19,15 @@ const calcArea = function (unit, area) {
   return Number.parseFloat(result).toFixed(2);
 };
 
+const updateTotalLevel = function () {
+  totalLevel.innerText = String(stack.length).padStart(3, "0").slice(-3);
+  console.log("done");
+};
+
 const renderStack = function () {
   console.log(stack);
-  // stack.forEach((level) => {
-  //   console.log(level);
-  // });
+  updateTotalLevel();
 };
-//level div
-// const addLevel = function () {
-
-// };
 
 const addLevel = function (position) {
   let level;
@@ -139,7 +141,7 @@ const addLevel = function (position) {
     }
     renderStack();
   });
-
+  renderStack();
   id++;
 };
 
