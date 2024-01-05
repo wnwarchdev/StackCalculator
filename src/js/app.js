@@ -6,6 +6,7 @@ const calculator = document.getElementById("calculator");
 const stackDiv = document.getElementById("stack");
 const addAboveBtn = document.getElementById("addAbove");
 const addBelowBtn = document.getElementById("addBelow");
+const btnReset = document.getElementById("btnReset");
 
 const totalLevel = document.getElementById("totalLevel");
 
@@ -181,4 +182,8 @@ addBelowBtn.addEventListener("click", function () {
   addLevel(`below`);
   stackDiv.removeEventListener("click", listenerFunction, true);
   stackDiv.addEventListener("click", listenerFunction, true);
+});
+
+btnReset.addEventListener("click", function () {
+  location.reload();
 });
