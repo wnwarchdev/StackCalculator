@@ -9,6 +9,8 @@ const addBelowBtn = document.getElementById("addBelow");
 const btnReset = document.getElementById("btnReset");
 
 const totalLevel = document.getElementById("totalLevel");
+const totalSqM = document.getElementById("totalSqM");
+const totalSqFt = document.getElementById("totalSqFt");
 
 let id = 1;
 
@@ -25,9 +27,19 @@ const updateTotalLevel = function () {
   console.log("done");
 };
 
+const updateTotalSqM = function () {
+  let total = 0;
+  for (const i in stack) {
+    total = total + parseFloat(stack[i].areaSqM);
+  }
+
+  totalSqM.innerText = total.toFixed(2) + "m²";
+};
+
 const renderStack = function () {
   console.log(stack);
   updateTotalLevel();
+  updateTotalSqM();
 };
 
 const addLevel = function (position) {
