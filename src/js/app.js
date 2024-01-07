@@ -36,10 +36,20 @@ const updateTotalSqM = function () {
   totalSqM.innerText = total.toFixed(2) + "m²";
 };
 
+const updateTotalSqFt = function () {
+  let total = 0;
+  for (const i in stack) {
+    total = total + parseFloat(stack[i].areaSqFt);
+  }
+
+  totalSqFt.innerText = total.toFixed(2) + "ft²";
+};
+
 const renderStack = function () {
   console.log(stack);
   updateTotalLevel();
   updateTotalSqM();
+  updateTotalSqFt();
 };
 
 const addLevel = function (position) {
