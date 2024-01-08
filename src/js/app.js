@@ -111,7 +111,7 @@ const addLevel = function (position) {
 `;
 
   stackDiv.insertAdjacentHTML(
-    position == `above` ? "beforeend" : "afterbegin",
+    position == `above` ? "afterbegin" : "beforeend",
     levelDiv,
   );
   let inputSqM = document.getElementById(`inputSqM-${currentId}`);
