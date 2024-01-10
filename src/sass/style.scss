@@ -5,6 +5,7 @@ html {
   display: flex;
   flex-direction: column;
   align-content: center;
+  overflow-y: scroll;
 }
 
 body {
@@ -41,14 +42,15 @@ input::-webkit-inner-spin-button {
 }
 
 .level {
-  border-color: blue;
-  background-color: orange;
-  border-width: 1px;
+  border-color: white;
+  background-color: rgb(190, 224, 255);
+  border-width: 2px;
   border-style: solid;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
   height: 60px;
+  font-weight: bold;
 }
 
 #addAbove,
@@ -56,24 +58,31 @@ input::-webkit-inner-spin-button {
   border-color: blue;
   color: blue;
   background-color: rgb(255, 255, 255);
+  border-style: dashed;
   border-width: 1px;
-  border-style: solid;
+  //border-style: none;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 60px;
   font-size: 30px;
+  font-weight: bold;
 }
 
 .input {
   width: 5em;
 }
 
+.inputLevel {
+  width: 1.7em;
+}
+
 #footer {
   background-color: rgb(45, 45, 255);
   border-width: 1px;
   border-style: solid;
+  border-radius: 15px 15px 0px 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -81,4 +90,25 @@ input::-webkit-inner-spin-button {
   height: 80px;
   color: white;
   font-size: 2rem;
+}
+
+#btnReset {
+  background-color: rgb(45, 45, 255);
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+}
+
+.bin {
+  background-color: white;
+  //border-radius: 100%;
+  border-width: 1px;
+  font-weight: bold;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  text-align: left;
 }

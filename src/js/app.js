@@ -75,7 +75,7 @@ const addLevel = function (position) {
   />
 </p>
 <p>
-  m2
+  
   <input
     id="inputSqM-${currentId}"
     class="input"
@@ -87,10 +87,10 @@ const addLevel = function (position) {
     ondrop="return false;"
     onblur="this.value = parseFloat(this.value).toFixed(2)"
     autocomplete="off"
-  />
+  /> m²
 </p>
 <p>
-  sqft
+  
   <input
     id="inputSqFt-${currentId}"
     class="input"
@@ -102,11 +102,11 @@ const addLevel = function (position) {
     ondrop="return false;"
     onblur="this.value = parseFloat(this.value).toFixed(2)"
     autocomplete="off"
-  />
+  /> ft²
 </p>
 <p>
-  <button
-  id="levelDivRemove-${currentId}">🗑️</button>
+  <button class ="bin"
+  id="levelDivRemove-${currentId}">X</button>
 </p>
 `;
 
@@ -209,3 +209,5 @@ addBelowBtn.addEventListener("click", function () {
 btnReset.addEventListener("click", function () {
   location.reload();
 });
+
+addLevel();
