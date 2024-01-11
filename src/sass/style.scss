@@ -53,6 +53,10 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
 }
 
+.levelSpecial {
+  background-color: rgb(239, 114, 114);
+}
+
 #addAbove,
 #addBelow {
   border-color: blue;
@@ -111,4 +115,10 @@ h1 {
   padding: 0;
   margin: 0;
   text-align: left;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }

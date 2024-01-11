@@ -58,7 +58,7 @@ const addLevel = function (position) {
   stack.push(level);
   const currentId = id;
 
-  const levelDiv = `<div class="level" id="levelDiv-${id}">
+  const levelDiv = `<div class="level prevent-select" id="levelDiv-${id}">
 <p>
   level
   <input
@@ -208,6 +208,13 @@ addBelowBtn.addEventListener("click", function () {
 
 btnReset.addEventListener("click", function () {
   location.reload();
+});
+
+stackDiv.addEventListener("click", function (e) {
+  console.log("stack clicked!", e.target.classList.contains("level"));
+  if (e.target.classList.contains("level")) {
+    e.target.classList.toggle("levelSpecial");
+  }
 });
 
 addLevel();
