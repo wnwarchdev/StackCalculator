@@ -102,6 +102,9 @@ input::-webkit-inner-spin-button {
   border-style: solid;
   border-color: white;
   color: white;
+  :hover {
+    background-color: rgb(232, 237, 135);
+  }
 }
 
 .bin {
@@ -121,4 +124,24 @@ h1 {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  border-color: rgb(45, 45, 255);
+  background-color: white;
+  outline: 1px solid white;
+  color: rgb(45, 45, 255);
+  border-width: 2px;
+  border-style: solid;
+  width: 5em;
+  order: 1000;
+  //right: 0;
+  transform: translate(-70%, 20%);
+}
+
+.menuItem {
+  margin: 0;
 }
