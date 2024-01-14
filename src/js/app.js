@@ -33,7 +33,7 @@ const updateTotalSqM = function () {
     total = total + parseFloat(stack[i].areaSqM);
   }
 
-  totalSqM.innerText = total.toFixed(2) + "m²";
+  totalSqM.innerText = total.toFixed(2) + " m²";
 };
 
 const updateTotalSqFt = function () {
@@ -42,7 +42,7 @@ const updateTotalSqFt = function () {
     total = total + parseFloat(stack[i].areaSqFt);
   }
 
-  totalSqFt.innerText = total.toFixed(2) + "ft²";
+  totalSqFt.innerText = total.toFixed(2) + " ft²";
 };
 
 const renderStack = function () {
@@ -60,7 +60,7 @@ const addLevel = function (position) {
 
   const levelDiv = `<div class="level prevent-select" id="levelDiv-${id}">
 <p>
-  level
+  <span class="excessText">level</span>
   <input
     id="level-${currentId}"
     class="input inputLevel"

@@ -96,16 +96,27 @@ input::-webkit-inner-spin-button {
   font-size: 2rem;
 }
 
+header {
+  background-color: white;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 0px 0px 15px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  color: rgb(45, 45, 255);
+  font-size: 2rem;
+  padding: 0, 10px;
+}
+
 .menuButton {
   background-color: rgb(45, 45, 255);
   border-width: 2px;
-  border-style: solid;
-  border-color: white;
+  border-style: none;
+  // border-color: white;
   color: white;
-}
-
-.menuButton:hover + .menuContents {
-  display: block;
+  display: flex;
 }
 
 .bin {
@@ -121,7 +132,9 @@ h1 {
   text-align: left;
 }
 
-.prevent-select {
+.prevent-select,
+p,
+h1 {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -133,7 +146,7 @@ h1 {
   bottom: 50px;
   border-color: rgb(45, 45, 255);
   background-color: white;
-  outline: 1px solid white;
+  //outline: 1px solid white;
   color: rgb(45, 45, 255);
   border-width: 2px;
   border-style: solid;
@@ -145,4 +158,91 @@ h1 {
 
 .menuItem {
   margin: 0;
+}
+
+.menuItem:hover {
+  background-color: lightgray;
+}
+
+.menuButton:hover + .menuContents {
+  display: block;
+}
+.menuContents:hover {
+  display: block;
+}
+
+.grayedOut {
+  color: gray;
+}
+
+//mediaQuerries
+
+@media only screen and (max-width: 1250px) {
+  body {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  body {
+    max-width: 600px;
+  }
+
+  #footer {
+    flex-wrap: wrap;
+    height: 120px;
+    justify-content: space-between;
+    //flex-direction: column;
+  }
+
+  #totalLevel {
+    order: 1;
+    margin: 0;
+    // width: 40%;
+  }
+  #btnReset {
+    order: 2;
+    margin: 0;
+    //margin: 0 20%;
+  }
+
+  #totalSqM {
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+
+  #totalSqFt {
+    order: 4;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  body {
+    max-width: 500px;
+  }
+
+  .excessText {
+    display: none;
+  }
+
+  #calculator {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  body {
+    width: 100%;
+  }
+
+  .excessText {
+    display: none;
+  }
+
+  #calculator {
+    max-width: 100%;
+  }
 }
