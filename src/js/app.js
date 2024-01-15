@@ -79,9 +79,11 @@ const addLevel = function (position) {
   <input
     id="inputSqM-${currentId}"
     class="input"
+    maxlength="7"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     min="0"
     value="0.00"
-    type="number"
+    type="text"
     pattern="^\d*(\.\d{0,2})?$"
     onpaste="return false;"
     ondrop="return false;"
@@ -96,7 +98,9 @@ const addLevel = function (position) {
     class="input"
     min="0"
     value="0.00"
-    type="number"
+    maxlength="8"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type="text"
     pattern="^\d*(\.\d{0,2})?$"
     onpaste="return false;"
     ondrop="return false;"
@@ -214,6 +218,19 @@ stackDiv.addEventListener("click", function (e) {
   console.log("stack clicked!", e.target.classList.contains("level"));
   if (e.target.classList.contains("level")) {
     e.target.classList.toggle("levelSpecial");
+  }
+});
+
+const regexTest = /^(\d*\.?\d{0,2}|\b)$/;
+calculator.addEventListener("beforeinput", (e) => {
+  const inputType = e.inputType;
+
+  if (inputType === "deleteContentBackward") {
+    return;
+  }
+
+  if (!regexTest.test(e.data)) {
+    e.preventDefault();
   }
 });
 

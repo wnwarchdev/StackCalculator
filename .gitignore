@@ -3,3 +3,7 @@ dist
 .parcel-cache
 package-lock.json
 .eslintrc.json
+.firebase/
+.firebaserc
+firebase.json
+public/
