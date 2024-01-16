@@ -1,7 +1,5 @@
 `use strict`;
 
-// const inputSqM = document.getElementById("inputSqM");
-// const inputSqFt = document.getElementById("inputSqFt");
 const calculator = document.getElementById("calculator");
 const stackDiv = document.getElementById("stack");
 const addAboveBtn = document.getElementById("addAbove");
@@ -24,7 +22,6 @@ const calcArea = function (unit, area) {
 
 const updateTotalLevel = function () {
   totalLevel.innerText = String(stack.length).padStart(3, "0").slice(-3);
-  console.log("done");
 };
 
 const updateTotalSqM = function () {
@@ -46,7 +43,6 @@ const updateTotalSqFt = function () {
 };
 
 const renderStack = function () {
-  console.log(stack);
   updateTotalLevel();
   updateTotalSqM();
   updateTotalSqFt();
@@ -122,13 +118,10 @@ const addLevel = function (position) {
   let inputSqFt = document.getElementById(`inputSqFt-${currentId}`);
   let inputNumber = document.getElementById(`level-${currentId}`);
 
-  //console.log(inputSqFt, inputSqM);
-
   //add level listener
 
   inputNumber.addEventListener("keyup", function (e) {
     e.preventDefault;
-    console.log("level-${currentId}");
     for (const i in stack) {
       if (stack[i].levelId == currentId) {
         stack[i].number = inputNumber.value;
@@ -139,13 +132,11 @@ const addLevel = function (position) {
 
   inputSqM.addEventListener("keyup", function (e) {
     e.preventDefault;
-    console.log(inputSqM);
     let conversion = calcArea(`inputSqM`, inputSqM.value);
     inputSqFt.value = conversion;
 
     for (const i in stack) {
       if (stack[i].levelId == currentId) {
-        //console.log("test");
         stack[i].areaSqM = inputSqM.value;
         stack[i].areaSqFt = conversion;
       }
@@ -155,13 +146,11 @@ const addLevel = function (position) {
 
   inputSqFt.addEventListener("keyup", function (e) {
     e.preventDefault;
-    console.log(inputSqFt);
     let conversion = calcArea(`inputSqFt`, inputSqFt.value);
     inputSqM.value = conversion;
 
     for (const i in stack) {
       if (stack[i].levelId == currentId) {
-        //console.log("test");
         stack[i].areaSqM = conversion;
         stack[i].areaSqFt = inputSqFt.value;
       }
@@ -180,7 +169,6 @@ const levelDivRemove = function (id) {
   //remove from stack too!
   for (const i in stack) {
     if (stack[i].levelId == id) {
-      console.log("test remove");
       stack.splice(i, 1);
     }
   }
@@ -189,9 +177,7 @@ const levelDivRemove = function (id) {
 
 function listenerFunction(e) {
   e.preventDefault;
-  //console.log(e.target.tagName);
   if (e.target.tagName == "BUTTON") {
-    ///console.log("listener!!!");
     levelDivRemove(e.target.id.slice(15));
   }
 }
@@ -215,7 +201,6 @@ btnReset.addEventListener("click", function () {
 });
 
 stackDiv.addEventListener("click", function (e) {
-  console.log("stack clicked!", e.target.classList.contains("level"));
   if (e.target.classList.contains("level")) {
     e.target.classList.toggle("levelSpecial");
   }
