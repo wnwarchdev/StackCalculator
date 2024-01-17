@@ -62,7 +62,7 @@ const addLevel = function (position) {
     class="input inputLevel"
     type="text"
     pattern="[0-9]*"
-    inputmode="numeric"
+    inputmode="decimal"
     onpaste="return false;"
     ondrop="return false;"
     maxlength="3"
@@ -75,6 +75,7 @@ const addLevel = function (position) {
   <input
     id="inputSqM-${currentId}"
     class="input"
+    inputmode="decimal"
     maxlength="7"
     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     min="0"
@@ -92,6 +93,7 @@ const addLevel = function (position) {
   <input
     id="inputSqFt-${currentId}"
     class="input"
+    inputmode="decimal"
     min="0"
     value="0.00"
     maxlength="8"
